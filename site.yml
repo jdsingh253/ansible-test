@@ -1,0 +1,12 @@
+---
+- name: Apply Global Configs # Needs a better name
+
+     hosts: all
+  gather_facts: yes
+  connection: local
+
+  roles:
+    - global # Apply common configs
+    - ospf   # Apply OSPF on area 0
+    - ping   # Test layer 3 connectivity
+    - save   # Save the running config to start-up
